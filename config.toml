@@ -1,0 +1,41 @@
+baseURL = "https://mes9.github.io/"
+languageCode = "en-us"
+title = "Michael Shashoua"
+theme = "pristine"
+canonifyURLs = true
+enableEmoji = true
+googleAnalytics = "UA-100475877-1"
+
+[params]
+    portrait = "images/mes.png"
+    weight = 200
+
+[[menu.main]]
+  identifier = "blog"
+  name = "Home"
+  url = "/"
+  weight = -100
+
+[[menu.main]]
+  name = "Research"
+  url = "/research/"
+  weight = -100
+
+
+[[menu.main]]
+	name = "CV"
+	url = "/shashoua_resume.pdf"
+	weight = -25
+
+[[menu.main]]
+    name = "contact me"
+    url = "mailto:mikeshashoua@gmail.com"
+    weight = -2
+
+[[params.social]]
+    title = "Email"
+    url = "mailto:mikeshashoua@gmail.com"
+[[params.social]]
+    title = "Linkedin"
+    url = "https://www.linkedin.com/in/shashoua/"
+		target="_blank"
