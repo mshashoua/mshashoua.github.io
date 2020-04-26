@@ -24,7 +24,7 @@ googleAnalytics = "UA-100475877-1"
 
 [[menu.main]]
 	name = "CV"
-	url = "/shashoua_resume.pdf"
+	url = "/shashoua_resume_2018.pdf"
 	weight = -25
 
 [[menu.main]]
