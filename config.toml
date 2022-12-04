@@ -24,7 +24,7 @@ googleAnalytics = "UA-100475877-1"
 
 [[menu.main]]
 	name = "Resume"
-	url = "/shashoua_resume_2020.pdf"
+	url = "/Shashoua_Resume_2023.pdf"
 	weight = -25
 
 [[menu.main]]
