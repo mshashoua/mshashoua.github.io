@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Shashoua - Data Scientist</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, Georgia, serif;
+            color: #000000;
+            line-height: 1.5;
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 200px 1px 1fr;
+            gap: 40px;
+        }
+
+        /* Left Sidebar Layout */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        .profile-pic {
+            width: 140px;
+            height: auto;
+            margin-bottom: 40px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Divider Line */
+        .divider {
+            background-color: #e0e0e0;
+            width: 1px;
+            height: 100%;
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            padding-left: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0 0 5px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 0 40px 0;
+        }
+
+        h3.section-title {
+            font-size: 1.3rem;
+            font-weight: normal;
+            margin: 0 0 15px 0;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin: 0 0 20px 0;
+            text-align: justify;
+        }
+
+        /* Footer Links */
+        .footer-line {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin-top: auto;
+            margin-bottom: 20px;
+            padding-top: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Typography Styling for Links */
+        a {
+            color: #0000ee;
+            text-decoration: underline;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .footer-links a {
+            text-transform: none; /* Keep Email & Linkedin capitalized normally */
+        }
+
+        /* Responsive design for mobile screens */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .sidebar {
+                align-items: center;
+                text-align: center;
+                padding-right: 0;
+            }
+            .divider {
+                display: none;
+            }
+            .main-content {
+                padding-left: 0;
+            }
+            .nav-links {
+                flex-direction: row;
+                gap: 15px;
+            }
+            h1 { font-size: 2rem; text-align: center; }
+            .subtitle { font-size: 1.25rem; text-align: center; margin-bottom: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Left Column: Photo & Menu -->
+        <div class="sidebar">
+            <!-- Update the src path to your actual image file name -->
+            <img src="profile.jpg" alt="Michael Shashoua" class="profile-pic">
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="research.html">Research</a>
+                <a href="resume.html">Resume</a>
+                <a href="contact.html">Contact Me</a>
+            </div>
+        </div>
+
+        <!-- Middle Column: The Vertical Line -->
+        <div class="divider"></div>
+
+        <!-- Right Column: Bio Content -->
+        <div class="main-content">
+            <h1>Michael Shashoua</h1>
+            <div class="subtitle">Data Scientist, Patreon</div>
+
+            <h3 class="section-title">about:</h3>
+            
+            <p>I’m a Senior Staff Data Scientist at Patreon, where I help drive product and business decisions through experimentation, causal inference, and analytics. Prior to Patreon, I held data science leadership roles at TikTok and Meta. My academic background is in economics–I earned a PhD from Rice University with a focus on industrial organization, marketing, and applied econometrics. I enjoy working at the intersection of rigorous quantitative methods and real-world product challenges.</p>
+
+            <p>My job market paper estimates the correlation of household advertising elasticities across various brands of chocolate and laundry detergent. It extends the dynamic panel methods of Arellano and Bond (1991) to allow time varying random coefficients that can be correlated with regressors (advertising exposure) and correlated across equations in a SUR (seemingly unrelated regressions) system.</p>
+
+            <!-- Bottom Section: Footer Links -->
+            <hr class="footer-line">
+            <div class="footer-links">
+                <!-- Replace with your actual email and linkedin URLs -->
+                <a href="mailto:your.email@example.com">Email</a>
+                <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
