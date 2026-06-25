@@ -159,19 +159,17 @@
 
     <div class="container">
         <!-- Left Column: Photo & Menu -->
-        <div class="sidebar">
-            <!-- Points to the image file sitting next to it -->
-            <img src="mes.png" alt="Michael Shashoua" class="profile-pic">
-
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="research.html">Research</a>
-                <!-- Links directly to your PDF file -->
-                <a href="shashoua_resume_2023_.pdf" target="_blank">Resume</a>
-                <a href="mailto:mikeshashoua@gmail.com">Contact Me</a>
-            </div>
-        </div>
-
+        <!-- Left Column: Photo & Menu (Fetched automatically via JavaScript) -->
+        <div class="sidebar" id="sidebar-menu"></div>
+        
+        <script>
+            // Fetch the master menu file and inject it into this sidebar
+            fetch('/menu.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('sidebar-menu').innerHTML = data;
+                });
+        </script>
         <!-- Middle Column: The Vertical Line -->
         <div class="divider"></div>
 
