@@ -2,266 +2,448 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Michael Shashoua - Research</title>
-  <style>
-    body {
-      font-family: "Times New Roman", Times, Georgia, serif;
-      color: #000000;
-      line-height: 1.5;
-      margin: 0;
-      padding: 40px 20px;
-      background-color: #ffffff;
-      display: flex;
-      justify-content: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Shashoua — Research</title>
+    <meta name="description"
+        content="Research and working papers by Michael Shashoua — applied econometrics, industrial organization, and causal inference.">
 
-    .container {
-      max-width: 900px;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 200px 1px 1fr;
-      gap: 40px;
-    }
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon_io/apple-touch-icon.png">
+    <link rel="manifest" href="/images/favicon_io/site.webmanifest">
+    <link rel="shortcut icon" href="/images/favicon_io/favicon.ico">
 
-    /* Left Sidebar Layout */
-    .sidebar {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      text-align: right;
-      padding-right: 10px;
-    }
+    <!-- Type: Newsreader (editorial serif) + Inter (utility sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap"
+        rel="stylesheet">
 
-    .profile-pic {
-      width: 140px;
-      height: auto;
-      margin-bottom: 40px;
-      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    }
+    <style>
+        :root {
+            --paper: #fdfdfb;
+            --ink: #1c1b19;
+            --slate: #6a665f;
+            --rule: #e7e3da;
+            --accent: #8b2e2e;
+            --accent-deep: #6f2424;
 
-    .nav-links {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
+            --serif: "Newsreader", Georgia, "Times New Roman", serif;
+            --sans: "Inter", system-ui, -apple-system, sans-serif;
 
-    /* Divider Line */
-    .divider {
-      background-color: #e0e0e0;
-      width: 1px;
-      height: 100%;
-    }
+            --measure: 64ch;
+        }
 
-    /* Main Content Layout */
-    .main-content {
-      padding-left: 10px;
-      display: flex;
-      flex-direction: column;
-    }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
 
-    h1 {
-      font-size: 2.5rem;
-      font-weight: bold;
-      margin: 0 0 40px 0;
-      letter-spacing: -0.5px;
-    }
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
 
-    .paper {
-      margin-bottom: 40px;
-    }
+        body {
+            font-family: var(--serif);
+            font-optical-sizing: auto;
+            color: var(--ink);
+            background-color: var(--paper);
+            line-height: 1.65;
+            margin: 0;
+            padding: clamp(32px, 6vw, 72px) clamp(20px, 5vw, 48px);
+            display: flex;
+            justify-content: center;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
 
-    .paper-title {
-      font-size: 1.2rem;
-      font-weight: bold;
-      margin: 0 0 5px 0;
-    }
+        .container {
+            max-width: 960px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 210px 1px minmax(0, 1fr);
+            gap: clamp(32px, 5vw, 64px);
+            align-items: start;
+        }
 
-    .authors {
-      font-size: 1.1rem;
-      font-style: italic;
-      margin: 0 0 10px 0;
-    }
+        /* ---------- Sidebar (populated from /menu.html) ---------- */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+            position: sticky;
+            top: clamp(32px, 6vw, 72px);
+        }
 
-    p {
-      font-size: 1.1rem;
-      margin: 0 0 15px 0;
-      text-align: justify;
-    }
+        .profile-pic {
+            width: 150px;
+            height: auto;
+            margin-bottom: 36px;
+            border-radius: 2px;
+            filter: grayscale(8%);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06),
+                0 8px 24px rgba(0, 0, 0, 0.08);
+        }
 
-    /* Footer Links */
-    .footer-line {
-      border: none;
-      border-top: 1px solid #e0e0e0;
-      margin-top: auto;
-      margin-bottom: 20px;
-      padding-top: 40px;
-    }
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
 
-    .footer-links {
-      display: flex;
-      justify-content: space-around;
-      width: 100%;
-      max-width: 500px;
-      margin: 0 auto;
-    }
+        .nav-links a {
+            font-family: var(--sans);
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--slate);
+            text-decoration: none;
+            transition: color 0.18s ease;
+        }
 
-    /* Typography Styling for Links */
-    a {
-      color: #0000ee;
-      text-decoration: underline;
-      font-size: 1.1rem;
-      text-transform: uppercase;
-    }
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            color: var(--accent);
+        }
 
-    .paper a {
-      text-transform: none;
-      /* Keep "See the latest version here" case normal */
-    }
+        /* ---------- Divider ---------- */
+        .divider {
+            background-color: var(--rule);
+            width: 1px;
+            align-self: stretch;
+        }
 
-    .footer-links a {
-      text-transform: none;
-    }
+        /* ---------- Main content ---------- */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
 
-    /* Responsive design for mobile screens */
-    @media (max-width: 768px) {
-      .container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
+        h1 {
+            font-family: var(--serif);
+            font-size: clamp(2.4rem, 5.5vw, 3.4rem);
+            font-weight: 500;
+            line-height: 1.05;
+            letter-spacing: -0.015em;
+            margin: 0 0 8px 0;
+        }
 
-      .sidebar {
-        align-items: center;
-        text-align: center;
-        padding-right: 0;
-      }
+        .subtitle {
+            font-style: italic;
+            font-weight: 400;
+            font-size: clamp(1.1rem, 2.4vw, 1.35rem);
+            color: var(--slate);
+            margin: 0 0 48px 0;
+        }
 
-      .divider {
-        display: none;
-      }
+        /* ---------- Papers ---------- */
+        .paper {
+            max-width: var(--measure);
+            margin: 0 0 40px 0;
+        }
 
-      .main-content {
-        padding-left: 0;
-      }
+        .paper+.paper {
+            border-top: 1px solid var(--rule);
+            padding-top: 40px;
+        }
 
-      .nav-links {
-        flex-direction: row;
-        gap: 15px;
-      }
+        .paper-title {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+            margin: 0 0 8px 0;
+        }
 
-      h1 {
-        font-size: 2rem;
-        text-align: center;
-        margin-bottom: 25px;
-      }
-    }
-  </style>
+        .authors {
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--slate);
+            margin: 0 0 16px 0;
+        }
+
+        .paper p {
+            font-size: 1.05rem;
+            line-height: 1.72;
+            margin: 0 0 16px 0;
+        }
+
+        .paper-link {
+            font-family: var(--sans);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4em;
+            transition: color 0.18s ease, gap 0.18s ease;
+        }
+
+        .paper-link::after {
+            content: "\2192";
+            /* → */
+            transition: transform 0.18s ease;
+        }
+
+        .paper-link:hover,
+        .paper-link:focus-visible {
+            color: var(--accent-deep);
+        }
+
+        .paper-link:hover::after,
+        .paper-link:focus-visible::after {
+            transform: translateX(3px);
+        }
+
+        /* ---------- Footer ---------- */
+        .footer-line {
+            border: none;
+            border-top: 1px solid var(--rule);
+            margin: 12px 0 0 0;
+            max-width: var(--measure);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            padding-top: 24px;
+            max-width: var(--measure);
+        }
+
+        .footer-links a {
+            font-family: var(--sans);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: var(--slate);
+            text-decoration: none;
+            position: relative;
+            transition: color 0.18s ease;
+        }
+
+        .footer-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 1px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.22s ease;
+        }
+
+        .footer-links a:hover,
+        .footer-links a:focus-visible {
+            color: var(--accent);
+        }
+
+        .footer-links a:hover::after,
+        .footer-links a:focus-visible::after {
+            transform: scaleX(1);
+        }
+
+        /* ---------- Focus & motion ---------- */
+        a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 1px;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .main-content {
+                animation: rise 0.6s ease both;
+            }
+
+            @keyframes rise {
+                from {
+                    opacity: 0;
+                    transform: translateY(8px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: none;
+                }
+            }
+        }
+
+        /* ---------- Mobile ---------- */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .sidebar {
+                align-items: center;
+                text-align: center;
+                position: static;
+            }
+
+            .profile-pic {
+                margin-bottom: 24px;
+            }
+
+            .nav-links {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .divider {
+                display: none;
+            }
+
+            h1,
+            .subtitle {
+                text-align: center;
+            }
+
+            .subtitle {
+                margin-bottom: 36px;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <div class="container">
-<!-- Left Column: Photo & Menu (Fetched automatically via JavaScript) -->
-<div class="sidebar" id="sidebar-menu"></div>
+    <div class="container">
+        <!-- Left column: photo + menu, injected from /menu.html -->
+        <div class="sidebar" id="sidebar-menu"></div>
 
-  <script>
-    fetch('/menu.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('sidebar-menu').innerHTML = data;
-      });
-  </script>
+        <script>
+            fetch('/menu.html')
+                .then(function (response) {
+                    if (!response.ok) throw new Error('menu.html not found');
+                    return response.text();
+                })
+                .then(function (data) {
+                    document.getElementById('sidebar-menu').innerHTML = data;
+                })
+                .catch(function () {
+                    document.getElementById('sidebar-menu').innerHTML =
+                        '<img src="/profile.png" alt="Michael Shashoua" class="profile-pic">' +
+                        '<nav class="nav-links">' +
+                        '<a href="/index.html">Home</a>' +
+                        '<a href="/research/">Research</a>' +
+                        '<a href="/shashoua_resume_2023_.pdf" target="_blank">Resume</a>' +
+                        '<a href="mailto:mikeshashoua@gmail.com">Contact Me</a>' +
+                        '</nav>';
+                });
+        </script>
+
+        <!-- Vertical hairline -->
+        <div class="divider"></div>
+
+        <!-- Right column: research -->
+        <div class="main-content">
+            <h1>Research</h1>
+            <div class="subtitle">Selected papers and working drafts</div>
+
+            <div class="paper">
+                <div class="paper-title">Private Labels, Famous Brands, and Heterogeneous Households: Can High Ad
+                    Spending be Justified and are Households&rsquo; Advertising Elasticities Stable Across Products?</div>
+                <div class="authors">with Jeremy Fox and Stefan Hoderlein</div>
+                <p>This paper estimates the correlation of household advertising elasticities across various brands of
+                    chocolate and laundry detergent. We leverage a unique data set consisting of matched ad views and
+                    household purchases across a two year period. This data allows us to address endogenity issues such
+                    as the correlation between ad exposure and household ad elasticities and the distinction between
+                    unobserved heterogeneity and state dependence. We extend the dynamic panel methods of Arellano and
+                    Bond (1991) to allow time varying random coefficients that can be correlated with regressors
+                    (advertising exposure) and correlated across equations in a SUR (seemingly unrelated regressions)
+                    system. We also address two specific puzzles. The first involves the high advertising spending in
+                    these industries, which we estimate to be well above the Dorfman-Steiner level of optimal spending.
+                    The second looks at the strength of the private labels (store brand) and why consumers purchase them
+                    despite their lack of television advertising.</p>
+                <a class="paper-link" href="mshashoua_jmp.pdf" target="_blank">See the latest version</a>
+            </div>
+
+            <div class="paper">
+                <div class="paper-title">Safety in Numbers? An Analysis of Market Concentration and Safety in the
+                    Commercial Railroad Industry</div>
+                <div class="authors">with Vikas Mittal and Shrihari Sridhar</div>
+                <p>In this paper, we examine the relationship between market concentration and safety incidents in the
+                    freight railroad industry in the United States. We measure safety incidents as the number of
+                    accidents and market concentration as the Herfindahl Hirschman Index. We test the model in the
+                    context of the commercial railroad industry, using a comprehensive data set spanning 40 years. We
+                    systematically control for correlated unobservables, and the results consistently indicate that a 1%
+                    increase in market concentration yields an approximately .4% decrease in the number of accidents.
+                    These results are robust to different measures of concentration, various time aggregations, and
+                    numerous model specifications. Furthermore, using bootstrapping techniques, we show that the
+                    relationship between safety and market concentration is mediated by the level of investment in
+                    capital expenditures, the total number of employee hours, and the amount of freight switching between
+                    railroad companies. An important implication of this study is that mergers may provide substantial
+                    value by reducing the number of accidents. These findings are relevant for firms, regulators, and
+                    consumers across all industries that suffer from safety incidents.</p>
+                <a class="paper-link" href="mshashoua_marketing.pdf" target="_blank">See the latest version</a>
+            </div>
+
+            <div class="paper">
+                <div class="paper-title">Selection Model of School Choice</div>
+                <p>In this paper, I create a model of school choice with endogenous selection. This paper shows that a
+                    general model of selection is identified without any additional assumptions from the standard school
+                    choice framework. I perform a monte carlo to show that this model pins down the correct parameter
+                    values, while not incorporating selection may severely bias the estimates. Furthermore, I present a
+                    potential counterfactual where an alternative is removed, and the model with selection is able to
+                    correctly predict the results. Incorporating selection is essential for school choice research, and
+                    this paper provides a framework to study it.</p>
+                <a class="paper-link" href="mshashoua_school_choice.pdf" target="_blank">See the latest version</a>
+            </div>
+
+            <div class="paper">
+                <div class="paper-title">Competition and Service Quality: The Role of Coordination Costs</div>
+                <div class="authors">with Vikas Mittal and Shrihari Sridhar</div>
+                <p>This study analyzes the impact of competition on various measures of service quality. The context is a
+                    quasi-experiment in which unexpected regulation increases costs and leads to firm exit in some
+                    markets. We propose a difference-in-differences framework to study the effect in the Railroad
+                    industry and we repeat our analysis in the Commercial Airline industry. An important insight is that
+                    both these industries operate on a shared network, and when more firms operate the coordination costs
+                    for the market will increase as well. We provide intuition for coordination&rsquo;s effect through
+                    adaption of a model by Shaked and Sutton (1983). Across both industries, the results show that a
+                    market quality increases as the number of firms decrease. In particular, changes in the coordination
+                    costs and the strength of the remaining firms appear to drive our results. We discuss the managerial
+                    implications of our findings and explain how they enrich and qualify previous results reported in the
+                    literature on product quality and competition. Furthermore, the results show that consumer advocates
+                    and regulators can look to target quality improvements through market structure.</p>
+            </div>
+
+            <div class="paper">
+                <div class="paper-title">Customer Lifetime Value in a Medical Context</div>
+                <div class="authors">with University of Texas Southwestern Medical Center, Jones Business School at Rice
+                    University, Mays Business School at Texas A&amp;M University</div>
+                <p>This study looks at maximizing customer lifetime value (CLV), which in the medical context relates to
+                    quality years of life. We leverage a novel medical data set of a randomized control trial of 1800
+                    patients. We then apply a CLV model to analyze the benefit of different interventions on patient
+                    response. The interventions differ in the initial level of information provided to patients at risk
+                    of a hepatocellular carcinoma (HCC). The results show that information significantly increases the
+                    CLV through both a higher initial screening rate and dynamic effects in later periods.</p>
+            </div>
+
+            <hr class="footer-line">
+            <div class="footer-links">
+                <a href="mailto:mikeshashoua@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/shashoua/">LinkedIn</a>
+            </div>
+        </div>
     </div>
-
-    <div class="divider"></div>
-
-    <div class="main-content">
-      <h1>Research</h1>
-
-      <div class="paper">
-        <div class="paper-title">Private Labels, Famous Brands, and Heterogeneous Households: Can High Ad Spending be
-          Justified and are Households' Advertising Elasticities Stable Across Products?</div>
-        <div class="authors">with Jeremy Fox and Stefan Hoderlein</div>
-        <p>This paper estimates the correlation of household advertising elasticities across various brands of chocolate
-          and laundry detergent. We leverage a unique data set consisting of matched ad views and household purchases
-          across a two year period. This data allows us to address endogenity issues such as the correlation between ad
-          exposure and household ad elasticities and the distinction between unobserved heterogeneity and state
-          dependence. We extend the dynamic panel methods of Arellano and Bond (1991) to allow time varying random
-          coefficients that can be correlated with regressors (advertising exposure) and correlated across equations in
-          a SUR (seemingly unrelated regressions) system. We also address two specific puzzles. The first involves the
-          high advertising spending in these industries, which we estimate to be well above the Dorfman-Steiner level of
-          optimal spending. The second looks at the strength of the private labels (store brand) and why consumers
-          purchase them despite their lack of television advertising.</p>
-        <a href="mshashoua_jmp.pdf" target="_blank">See the latest version here</a>
-      </div>
-
-      <div class="paper">
-        <div class="paper-title">Safety in Numbers? An Analysis of Market Concentration and Safety in the Commercial
-          Railroad Industry</div>
-        <div class="authors">with Vikas Mittal and Shrihari Sridhar</div>
-        <p>In this paper, we examine the relationship between market concentration and safety incidents in the freight
-          railroad industry in the United States. We measure safety incidents as the number of accidents and market
-          concentration as the Herfindahl Hirschman Index. We test the model in the context of the commercial railroad
-          industry, using a comprehensive data set spanning 40 years. We systematically control for correlated
-          unobservables, and the results consistently indicate that a 1% increase in market concentration yields an
-          approximately .4% decrease in the number of accidents. These results are robust to different measures of
-          concentration, various time aggregations, and numerous model specifications. Furthermore, using bootstrapping
-          techniques, we show that the relationship between safety and market concentration is mediated by the level of
-          investment in capital expenditures, the total number of employee hours, and the amount of freight switching
-          between railroad companies. An important implication of this study is that mergers may provide substantial
-          value by reducing the number of accidents. These findings are relevant for firms, regulators, and consumers
-          across all industries that suffer from safety incidents.</p>
-        <a href="mshashoua_marketing.pdf" target="_blank">See the latest version here</a>
-      </div>
-
-      <div class="paper">
-        <div class="paper-title">Selection Model of School Choice</div>
-        <p>In this paper, I create a model of school choice with endogenous selection. This paper shows that a general
-          model of selection is identified without any additional assumptions from the standard school choice framework.
-          I perform a monte carlo to show that this model pins down the correct parameter values, while not
-          incorporating selection may severely bias the estimates. Furthermore, I present a potential counterfactual
-          where an alternative is removed, and the model with selection is able to correctly predict the results.
-          Incorporating selection is essential for school choice research, and this paper provides a framework to study
-          it.</p>
-        <a href="mshashoua_school_choice.pdf" target="_blank">See the latest version here</a>
-      </div>
-
-      <div class="paper">
-        <div class="paper-title">Competition and Service Quality: The Role of Coordination Costs</div>
-        <div class="authors">with Vikas Mittal and Shrihari Sridhar</div>
-        <p>This study analyzes the impact of competition on various measures of service quality. The context is a
-          quasi-experiment in which unexpected regulation increases costs and leads to firm exit in some markets. We
-          propose a difference-in-differences framework to study the effect in the Railroad industry and we repeat our
-          analysis in the Commercial Airline industry. An important insight is that both these industries operate on a
-          shared network, and when more firms operate the coordination costs for the market will increase as well. We
-          provide intuition for coordination's effect through adaption of a model by Shaked and Sutton (1983). Across
-          both industries, the results show that a market quality increases as the number of firms decrease. In
-          particular, changes in the coordination costs and the strength of the remaining firms appear to drive our
-          results. We discuss the managerial implications of our findings and explain how they enrich and qualify
-          previous results reported in the literature on product quality and competition. Furthermore, the results show
-          that consumer advocates and regulators can look to target quality improvements through market structure.</p>
-      </div>
-
-      <div class="paper">
-        <div class="paper-title">Customer Lifetime Value in a Medical Context</div>
-        <div class="authors">with University of Texas Southwestern Medical Center, Jones Business School at Rice
-          University, Mays Business School at Texas A&M University</div>
-        <p>This study looks at maximizing customer lifetime value (CLV), which in the medical context relates to quality
-          years of life. We leverage a novel medical data set of a randomized control trial of 1800 patients. We then
-          apply a CLV model to analyze the benefit of different interventions on patient response. The interventions
-          differ in the initial level of information provided to patients at risk of a hepatocellular carcinoma (HCC).
-          The results show that information significantly increases the CLV through both a higher initial screening rate
-          and dynamic effects in later periods.</p>
-      </div>
-
-      <hr class="footer-line">
-      <div class="footer-links">
-        <a href="mailto:mikeshashoua@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/shashoua/">LinkedIn</a>
-      </div>
-    </div>
-  </div>
 
 </body>
 
